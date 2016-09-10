@@ -6,6 +6,7 @@ import javax.annotation.Nullable;
 import org.bukkit.block.BlockState;
 import org.bukkit.entity.LivingEntity;
 
+import org.bukkit.event.entity.EntityDamageEvent.DamageCause;
 import tc.oc.tracker.base.AbstractDamageInfo;
 import tc.oc.tracker.damage.BlockDamageInfo;
 
@@ -25,4 +26,9 @@ public class AbstractBlockDamageInfo extends AbstractDamageInfo implements Block
     }
 
     private final @Nonnull BlockState blockDamager;
+
+    @Override
+    public @Nonnull DamageCause getDamageCause() {
+        return DamageCause.CONTACT;
+    }
 }

@@ -27,4 +27,9 @@ public class BukkitDamageInfo extends AbstractDamageInfo {
     public @Nonnull String toString() {
         return "BukkitDamageInfo{cause=" + this.cause + "}";
     }
+
+    @Override
+    public @Nonnull DamageCause getDamageCause() {
+        return this.cause;
+    }
 }

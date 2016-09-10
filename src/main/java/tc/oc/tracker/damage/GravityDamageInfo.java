@@ -5,6 +5,7 @@ import javax.annotation.Nullable;
 
 import org.bukkit.entity.LivingEntity;
 
+import org.bukkit.event.entity.EntityDamageEvent.DamageCause;
 import tc.oc.tracker.base.AbstractDamageInfo;
 import tc.oc.tracker.trackers.base.gravity.Fall;
 
@@ -36,5 +37,10 @@ public class GravityDamageInfo extends AbstractDamageInfo {
     @Override
     public @Nonnull String toString() {
         return "GravityDamageInfo{damager=" + this.resolvedDamager + ",cause=" + this.cause + ",from=" + this.from + "}";
+    }
+
+    @Override
+    public @Nonnull DamageCause getDamageCause() {
+        return DamageCause.FALL;
     }
 }

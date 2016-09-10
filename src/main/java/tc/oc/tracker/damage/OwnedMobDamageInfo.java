@@ -7,6 +7,7 @@ import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Projectile;
 
+import org.bukkit.event.entity.EntityDamageEvent.DamageCause;
 import tc.oc.tracker.base.AbstractDamageInfo;
 
 public class OwnedMobDamageInfo extends AbstractDamageInfo {
@@ -31,5 +32,15 @@ public class OwnedMobDamageInfo extends AbstractDamageInfo {
     @Override
     public @Nonnull String toString() {
         return "OwnedMobDamageInfo{damager=" + this.resolvedDamager + ",mobOwner=" + this.mobOwner + ",projectile=" + this.projectile + "}";
+    }
+
+    @Override
+    public @Nonnull DamageCause getDamageCause() {
+        if (getProjectile() == null) {
+            return DamageCause.ENTITY_ATTACK;
+        }
+        else {
+            return DamageCause.PROJECTILE;
+        }
     }
 }

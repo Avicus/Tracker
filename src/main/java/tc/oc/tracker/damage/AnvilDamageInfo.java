@@ -7,6 +7,7 @@ import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.FallingBlock;
 import org.bukkit.entity.LivingEntity;
 
+import org.bukkit.event.entity.EntityDamageEvent.DamageCause;
 import tc.oc.tracker.base.AbstractDamageInfo;
 
 public class AnvilDamageInfo extends AbstractDamageInfo {
@@ -32,5 +33,10 @@ public class AnvilDamageInfo extends AbstractDamageInfo {
     @Override
     public @Nonnull String toString() {
         return "AnvilDamageInfo{anvil=" + this.anvil + ",damager=" + this.resolvedDamager + ",offlinePlayer=" + this.offlinePlayer + "}";
+    }
+
+    @Override
+    public @Nonnull DamageCause getDamageCause() {
+        return DamageCause.FALLING_BLOCK;
     }
 }

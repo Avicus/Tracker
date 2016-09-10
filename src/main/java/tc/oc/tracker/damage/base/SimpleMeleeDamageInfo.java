@@ -5,6 +5,7 @@ import javax.annotation.Nonnull;
 import org.bukkit.Material;
 import org.bukkit.entity.LivingEntity;
 
+import org.bukkit.event.entity.EntityDamageEvent.DamageCause;
 import tc.oc.tracker.base.AbstractDamageInfo;
 import tc.oc.tracker.damage.MeleeDamageInfo;
 
@@ -29,4 +30,9 @@ public class SimpleMeleeDamageInfo extends AbstractDamageInfo implements MeleeDa
     }
 
     private final @Nonnull Material weaponMaterial;
+
+    @Override
+    public @Nonnull DamageCause getDamageCause() {
+        return DamageCause.ENTITY_ATTACK;
+    }
 }

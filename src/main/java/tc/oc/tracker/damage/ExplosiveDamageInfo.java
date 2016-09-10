@@ -6,6 +6,7 @@ import javax.annotation.Nullable;
 import org.bukkit.entity.Explosive;
 import org.bukkit.entity.LivingEntity;
 
+import org.bukkit.event.entity.EntityDamageEvent.DamageCause;
 import tc.oc.tracker.base.AbstractDamageInfo;
 
 import com.google.common.base.Preconditions;
@@ -26,5 +27,10 @@ public class ExplosiveDamageInfo extends AbstractDamageInfo {
     @Override
     public @Nonnull String toString() {
         return "ExplosiveDamageInfo{explosive=" + this.explosive + ",damager=" + this.resolvedDamager + "}";
+    }
+
+    @Override
+    public @Nonnull DamageCause getDamageCause() {
+        return DamageCause.ENTITY_ATTACK;
     }
 }

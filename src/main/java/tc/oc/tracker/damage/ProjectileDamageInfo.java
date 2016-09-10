@@ -6,6 +6,7 @@ import javax.annotation.Nullable;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Projectile;
 
+import org.bukkit.event.entity.EntityDamageEvent.DamageCause;
 import tc.oc.tracker.base.AbstractDamageInfo;
 
 import com.google.common.base.Preconditions;
@@ -34,5 +35,11 @@ public class ProjectileDamageInfo extends AbstractDamageInfo {
     @Override
     public @Nonnull String toString() {
         return "ProjectileDamageInfo{shooter=" + this.resolvedDamager + ",projectile=" + this.projectile + ",distance=" + this.projectileDistance + "}";
+    }
+
+
+    @Override
+    public @Nonnull DamageCause getDamageCause() {
+        return DamageCause.PROJECTILE;
     }
 }

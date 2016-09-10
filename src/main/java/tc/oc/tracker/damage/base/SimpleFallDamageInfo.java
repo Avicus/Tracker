@@ -1,9 +1,11 @@
 package tc.oc.tracker.damage.base;
 
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import org.bukkit.entity.LivingEntity;
 
+import org.bukkit.event.entity.EntityDamageEvent.DamageCause;
 import tc.oc.tracker.base.AbstractDamageInfo;
 import tc.oc.tracker.damage.FallDamageInfo;
 
@@ -23,4 +25,9 @@ public class SimpleFallDamageInfo extends AbstractDamageInfo implements FallDama
     }
 
     private final float fallDistance;
+
+    @Override
+    public @Nonnull DamageCause getDamageCause() {
+        return DamageCause.FALL;
+    }
 }
